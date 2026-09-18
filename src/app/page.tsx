@@ -86,8 +86,8 @@ export default function Home() {
     <div className="flex flex-1 flex-col bg-background">
       <header className="flex items-center justify-between border-b border-border px-6 py-4">
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-text-secondary">Datapad</p>
-          <h1 className="text-lg font-semibold text-text-primary">AI레디데이터의 차이를 눈으로 확인하세요</h1>
+          <p className="text-xs uppercase tracking-[0.2em] text-text-secondary">빅밸류</p>
+          <h1 className="text-lg font-semibold text-text-primary">Datapad</h1>
         </div>
         <p className="text-xs text-text-secondary">
           메이커 = 이해찬 · 누적 방문 {counters.visits} · 누적 실행 {counters.runs}
