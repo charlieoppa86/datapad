@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Datapad
 
-## Getting Started
+Raw CSV와 AI-ready CSV에 같은 질문을 던져, LLM 답변이 데이터 품질에 따라
+어떻게 달라지는지 나란히 보여주는 웹 서비스. 전체 요구사항은
+[`docs/datapad_prd.md`](./docs/datapad_prd.md), 디자인 토큰은
+[`docs/datapad-DESIGN.md`](./docs/datapad-DESIGN.md) 참고.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 16 (App Router, TypeScript)** — 프론트엔드와 API 라우트를 한 프로젝트로.
+  PRD가 요구하는 서버사이드 LLM 호출(API 키 은닉)과 CSV 처리를 위해 정적
+  HTML/CSS/JS만으로는 구성할 수 없어 채택.
+- **Tailwind CSS v4** — `src/app/globals.css`의 `@theme`에 디자인 문서의
+  색상/폰트/spacing/radius 토큰을 그대로 반영.
+- **Anthropic SDK** — `src/lib/llm.ts`, LLM 벤더는 PRD 오픈 이슈(10)로 교체 가능.
+- **Upstash Redis** (`@upstash/redis`) — 누적 방문자/실행 수 카운터.
+  env 미설정 시 인메모리 폴백으로 로컬 개발 가능.
+
+## 폴더 구조
+
+```
+src/
+  app/
+    page.tsx              # 2-pane UI (업로드/결과) — 다음 작업에서 구현
+    api/analyze/route.ts  # CSV 요약 + LLM 호출 (PRD 7.3), raw/ai-ready 각각 호출
+    api/stats/route.ts    # 방문/실행 카운터 조회·증가 (PRD 7.6)
+  lib/
+    csv.ts                # CSV 파싱 + 컬럼 요약 생성
+    llm.ts                # 질문 + 요약으로 LLM 호출
+    kv.ts                 # 카운터 저장소 (Upstash / 인메모리 폴백)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 시작하기
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.example .env.local   # ANTHROPIC_API_KEY 채우기
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+http://localhost:3000 에서 확인.
 
-## Learn More
+## 배포
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vercel 배포 시 `ANTHROPIC_API_KEY`를 프로젝트 환경변수로 등록하고,
+Vercel Marketplace에서 Upstash Redis(또는 다른 Redis) 통합을 추가하면
+`KV_REST_API_URL` / `KV_REST_API_TOKEN`이 자동 주입된다.
