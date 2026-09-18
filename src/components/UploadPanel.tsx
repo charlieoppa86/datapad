@@ -62,7 +62,7 @@ export default function UploadPanel({
   }
 
   return (
-    <div className="flex flex-1 flex-col rounded-lg border border-border bg-surface p-4">
+    <div className="flex min-h-[320px] min-w-0 flex-1 flex-col rounded-lg border border-border bg-surface p-4">
       <div className="mb-3 flex items-center justify-between">
         <h2 className="text-sm font-semibold text-text-primary">{label}</h2>
         <a
@@ -82,7 +82,7 @@ export default function UploadPanel({
         onDragLeave={() => setIsDragging(false)}
         onDrop={handleDrop}
         onClick={() => inputRef.current?.click()}
-        className={`flex min-h-[96px] cursor-pointer flex-col items-center justify-center rounded-md border border-dashed px-4 py-6 text-center text-xs transition-colors ${
+        className={`flex min-h-[160px] cursor-pointer flex-col items-center justify-center rounded-md border border-dashed px-4 py-6 text-center text-xs transition-colors ${
           isDragging
             ? "border-primary bg-primary/5 text-primary"
             : "border-border text-text-secondary hover:border-primary/50"
