@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  /* Colors — from docs/datapad-DESIGN.md */
-  --color-primary: #6366f1;
-  --color-primary-hover: #4f46e5;
+  /* Colors — from docs/datapad-DESIGN.md (brand accents ref. bigvalue.ai key colors) */
+  --color-primary: #4434e2;
+  --color-primary-hover: #3526c7;
+  --color-primary-light: #6867fe;
+  --color-primary-pale: #ecebfc;
   --color-secondary: #20970b;
   --color-neutral: #9c9c9c;
   --color-background: #fafafa;
@@ -13,7 +15,7 @@
   --color-border: #e8e8ec;
   --color-success: #10b981;
   --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-error: #f43f5e;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,6 +31,8 @@
 @theme inline {
   --color-primary: var(--color-primary);
   --color-primary-hover: var(--color-primary-hover);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-pale: var(--color-primary-pale);
   --color-secondary: var(--color-secondary);
   --color-neutral: var(--color-neutral);
   --color-background: var(--color-background);

@@ -1,0 +1,16 @@
+customer_id,name,age,signup_date,country,monthly_spend
+C001,Jane Kim,34,2023-01-05,USA,$12.50
+C002,Mike Lee,thirty-two,01/12/2023,usa,11.0
+C003,Sara Park,,5 Jan 2023,United States,$9.99
+C004,Tom Choi,29yrs,2023-02-18,US,
+C005,Amy Han,41,2023/03/02,USA,$21.00
+C006,Chris Yoon,,2023-03-15,United States,15
+C007,Grace Oh,38,03-22-2023,usa,$18.30
+C008,David Shin,,2023-04-01,US,N/A
+C009,Linda Baek,27,4/9/2023,USA,$8.00
+C010,Kevin Moon,45,2023-04-20,United states,$30.00
+C011,Nora Jung,,2023-05-02,usa,12.25
+C012,Paul Song,33,05/10/2023,USA,
+C013,Ella Yang,,11 May 2023,US,$14.75
+C014,Brian Cho,50,2023-05-25,United States,$40.10
+C015,Rachel Nam,,2023-06-01,usa,10

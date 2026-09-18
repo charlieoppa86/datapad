@@ -4,8 +4,11 @@
 An editorial precision interface for a community platform where developers discover, share, and download design system files. The aesthetic is quietly confident — bold display typography, generous spacing, and gallery-frame card surfaces. The mood is professional and modern without being sterile. High information density balanced by breathing room. 
 
 ## Colors
-- **Primary** (#6366F1): CTAs, active states, links, focus rings, interactive highlights — indigo
-- **Primary Hover** (#4F46E5): Darker indigo for hover states on primary elements
+Brand accent tokens (Primary/Primary Hover/Primary Light/Primary Pale, Error) reference the key colors used on bigvalue.ai's homepage.
+- **Primary** (#4434E2): CTAs, active states, links, focus rings, interactive highlights — indigo/violet
+- **Primary Hover** (#3526C7): Darker indigo/violet for hover states on primary elements
+- **Primary Light** (#6867FE): Lighter accent — secondary CTAs, chart highlights
+- **Primary Pale** (#ECEBFC): Subtle tinted backgrounds behind primary elements (badges, selected states)
 - **Secondary** (#20970B): Reserved exclusively for the DESIGN.md brand highlight on the homepage — green
 - **Neutral** (#9C9C9C): Muted text, placeholders, timestamps, disabled states
 - **Background** (#FAFAFA): Page background, light warm gray
@@ -15,7 +18,7 @@ An editorial precision interface for a community platform where developers disco
 - **Border** (#E8E8EC): Card borders, dividers, input borders — subtle and recessive
 - **Success** (#10B981): Published status, confirmations, positive indicators
 - **Warning** (#F59E0B): Pending states, caution banners
-- **Error** (#EF4444): Destructive actions, validation errors, rejected status
+- **Error** (#F43F5E): Destructive actions, validation errors, rejected status — rose
 
 ## Typography
 - **Display Font**: General Sans — loaded from Fontshare
@@ -56,7 +59,7 @@ This design uses minimal shadows. Cards rest flat with a 1px border and gain a s
 - 9999px: Avatars, status dots, pill badges
 
 ## Do's and Don'ts
-- Do use indigo (#6366F1) only for interactive elements — never for decoration or static text
+- Do use indigo/violet (#4434E2) only for interactive elements — never for decoration or static text
 - Do maintain the 4px spacing grid for all padding, margins, and gaps
 - Do use General Sans for headings and DM Sans for body — never swap them
 - Do keep kit cards at 12px radius and buttons/inputs at 6px — don't mix these values
