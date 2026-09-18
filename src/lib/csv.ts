@@ -97,9 +97,16 @@ export function formatCsvContextForPrompt(ctx: CsvContext): { summaryText: strin
     })
     .join("\n");
 
-  const header = ctx.headers.join(",");
-  const rows = ctx.sampleRows.map((r) => r.join(",")).join("\n");
+  const header = ctx.headers.map(csvEscape).join(",");
+  const rows = ctx.sampleRows.map((r) => r.map(csvEscape).join(",")).join("\n");
   const sampleRowsText = `${header}\n${rows}`;
 
   return { summaryText, sampleRowsText };
+}
+
+function csvEscape(value: string): string {
+  if (/[",\n]/.test(value)) {
+    return `"${value.replace(/"/g, '""')}"`;
+  }
+  return value;
 }
